@@ -20,6 +20,14 @@ public class Node {
         return value.length();
     }
 
+    public boolean isLeftNull(){
+        return left == null;
+    }
+
+    public boolean isRightNull(){
+        return right == null;
+    }
+
     public Node getLeft() {
         return left;
     }

@@ -13,7 +13,8 @@ public class Main {
         tree.getLeft().setLeft(new Node("2.1"));
         tree.getLeft().setRight(new Node("2.2"));
 
-        tree.getLeft().getRight().setRight(new Node("2.2.2"));
+        tree.getLeft().getRight().setLeft(new Node("2.2.2"));
+        tree.getLeft().getRight().getLeft().setRight(new Node("2.2.2.4"));
 
         tree.getRight().setLeft(new Node("3.1"));
         tree.getRight().setRight(new Node("3.2"));
@@ -22,9 +23,7 @@ public class Main {
         tree.getRight().getRight().setRight(new Node("4.2"));
 
         TreeUtils utils = new TreeUtils();
-        //utils.print(tree,0);
-//        System.out.println();
-//        System.out.println("____________________");
+
         utils.print2(tree, 0, 0);
         utils.showTree();
     }

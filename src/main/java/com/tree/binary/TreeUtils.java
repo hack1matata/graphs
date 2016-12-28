@@ -32,19 +32,20 @@ public class TreeUtils {
         int spacesLeft = 0;
         int spacesRight = 0;
         int spacesMiddle = 0;
-        if(node.getLeft()==null && node.getRight()==null){
-            spacesRight = node.getValue().length();
-            insertString(spaces, node.getValue(), index);
-        }else {
-            spacesLeft = print2(node.getLeft(), spaces, index + 1);
-            spacesMiddle = spaces + spacesLeft + node.getLength();
-            spacesRight = print2(node.getRight(), spacesMiddle, index + 1);
-            insertString(spaces + spacesLeft, node.getValue(), index);
-        }
-        return spacesMiddle + spacesRight;
+        int maxSpaces = 0;
+        spacesLeft = node.isLeftNull() ? 0 : print2(node.getLeft(), spaces, index + 1);
+
+        maxSpaces = Math.max(spaces,spacesLeft);
+        spacesMiddle = maxSpaces + node.getLength();
+        insertString(maxSpaces, node.getValue(), index);
+
+        spacesRight = node.isRightNull() ? 0 : print2(node.getRight(), spacesMiddle, index + 1);
+
+        return Math.max(spacesMiddle, spacesRight);
     }
 
     public void showTree(){
+        display("\n\n________________\n\n");
         for(String str : stringList){
             display(str);
             display("\n");
