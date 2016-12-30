@@ -24,7 +24,7 @@ public class Main {
 
         TreeUtils utils = new TreeUtils();
 
-        utils.print2(tree, 0, 0);
+        utils.print2(tree, 0, 1, false);
         utils.showTree();
     }
 }
